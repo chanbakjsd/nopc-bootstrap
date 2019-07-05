@@ -17,12 +17,12 @@ set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 
 include_directories(
-		${LLVM_INCLUDE_DIRS}
+		SYSTEM ${LLVM_INCLUDE_DIRS}
 		${PROJECT_SRC_DIR}/src
 		${PROJECT_SOURCE_DIR}/src/CommandParse
-		${PROJECT_SOURCE_DIR}/src/parser
-		/usr/local/include/antlr4-runtime
-		/usr/include/antlr4-runtime
+		SYSTEM ${PROJECT_SOURCE_DIR}/src/parser
+		SYSTEM /usr/local/include/antlr4-runtime
+		SYSTEM /usr/include/antlr4-runtime
 )
 
 add_definitions(${LLVM_DEFINITIONS})
