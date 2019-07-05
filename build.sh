@@ -11,8 +11,10 @@ fi
 
 declare build_dir="build"
 
-if [[ ! -d "${build_dir}" ]]; then
-	cmake -Bbuild -H. -GNinja
+if ! cmake -Bbuild -H. -GNinja; then
+	echo "An error has occurred while generating ninja build file."
+	echo "Please resolve it and rerun this script."
+	exit 1
 fi
 
 ninja -C "${build_dir}"
