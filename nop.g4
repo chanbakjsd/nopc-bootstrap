@@ -37,7 +37,7 @@ operation
 | statement
 ;
 
-assign: property (PLUS | MINUS | STAR | SLASH)? EQUAL statement;
+assign: property (PLUS | MINUS | STAR | SLASH | PERCENT)? EQUAL statement;
 returnStatement: RETURN statement;
 ifStatement: IF statement LCURLY operation* RCURLY (ELSE LCURLY operation* RCURLY)?;
 matchStatement: MATCH statement LCURLY (statement RARROW ((LCURLY operation* RCURLY) | operation))+ RCURLY;
@@ -49,7 +49,7 @@ statement
 | statement LESSERTHAN (EQUAL)? statement
 | statement GREATERTHAN (EQUAL)? statement
 | functionCall
-| statement (STAR | SLASH) statement
+| statement (STAR | SLASH | PERCENT) statement
 | statement (PLUS | MINUS) statement
 | SELF
 | literal
@@ -61,6 +61,7 @@ statement
 
 literal
 : STRING
+| FLOAT
 | NUMBER
 | TRUE
 | FALSE
@@ -130,11 +131,13 @@ PLUS: '+';
 MINUS: '-';
 STAR: '*';
 SLASH: '/';
+PERCENT: '%';
 EXCLAMATION: '!';
 LESSERTHAN: '<';
 GREATERTHAN: '>';
 IDENTIFIER: [A-Za-z][A-Za-z0-9]*;
 ALPHA: [A-Za-z];
 NUMBER: [0-9]+;
+FLOAT: NUMBER DOT NUMBER;
 DIGIT: [0-9];
 WHITESPACE: [ \t\r\n]+ -> skip; //Whitespace doesn't hold any meaning in our syntax
