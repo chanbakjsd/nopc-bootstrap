@@ -1,10 +1,3 @@
-/*
-** EPITECH PROJECT, 2019
-** nopc-bootstrap
-** File description:
-** ParsingTools.hpp
-*/
-
 #ifndef NOPC_BOOTSTRAP_PARSINGTOOLS_HPP
 #define NOPC_BOOTSTRAP_PARSINGTOOLS_HPP
 

@@ -20,6 +20,7 @@ include_directories(
 		SYSTEM ${LLVM_INCLUDE_DIRS}
 		${PROJECT_SRC_DIR}/src
 		${PROJECT_SOURCE_DIR}/src/CommandParse
+		${PROJECT_SOURCE_DIR}/src/ASTParser
 		SYSTEM ${PROJECT_SOURCE_DIR}/src/parser
 		SYSTEM /usr/local/include/antlr4-runtime
 		SYSTEM /usr/include/antlr4-runtime
