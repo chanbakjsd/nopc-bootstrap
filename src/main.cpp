@@ -12,6 +12,9 @@ int parse_files(CommandParse &commandParse)
         LOG_VERBOSE("Parsing " << InputFile)
         try {
             std::ifstream stream(InputFile);
+	    if (!stream.good()) {
+                throw std::invalid_argument("Invalid file " + InputFile);
+	    }
             antlr4::ANTLRInputStream input(stream);
 
             nopLexer lexer(&input);
